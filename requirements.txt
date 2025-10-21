@@ -1,0 +1,7 @@
+robotframework
+robotframework-appiumlibrary
+selenium
+Appium-Python-Client
+firebase-admin
+requests
+

@@ -1,0 +1,120 @@
+stages:
+  - setup
+  - test
+  - deploy
+  - notify
+
+# Global variables
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  DOCKER_IMAGE_NAME: ${CI_PROJECT_NAME}
+  APK_DOWNLOAD_PATH: "${CI_PROJECT_DIR}/apps/app.apk"
+  FIREBASE_STORAGE_PATH: "releases/latest"
+  GCP_SERVICE_ACCOUNT_KEY: "${CI_PROJECT_DIR}/config/gcloud-service-account.json"
+  # Firebase settings - Set these in GitLab CI/CD Variables
+  # FIREBASE_STORAGE_BUCKET: "your-firebase-bucket-name.appspot.com"
+
+# Cache pip dependencies between jobs
+cache:
+  paths:
+    - .cache/pip
+
+# Setup job - Install dependencies and prepare environment
+setup:
+  stage: setup
+  image: registry-gitlab.mti.mt.gov.br/docker-images/python:3.9
+  script:
+    - echo "Installing dependencies..."
+    - pip install -r requirements.txt
+    - echo "Setting up Firebase credentials..."
+    - pip list
+    - mkdir -p apps
+  artifacts:
+    paths:
+      - venv/
+      - apps/
+    expire_in: 1 day
+
+# Run Robot Framework tests with APK from Firebase
+test:
+  stage: test
+  image: registry-gitlab.mti.mt.gov.br/docker-images/android-emulator
+  needs:
+    - setup
+  before_script:
+    - export PYTHONPATH=${CI_PROJECT_DIR}
+    - export FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
+    - apt-get update && apt-get install -y nodejs npm android-tools-adb python3-pip
+    - pip install firebase_admin requests
+    - curl -sL https://deb.nodesource.com/setup_14.x | bash -  # Use the appropriate version for your needs
+    - apt-get install -y nodejs
+    - npm install -g appium 
+    - appium --log-level error &
+    - sleep 5  # Give Appium time to start
+  script:
+    - |
+      echo "Downloading APK from Firebase..."
+      python3 -c "
+      import sys
+      sys.path.append('${CI_PROJECT_DIR}')
+      from common.firebase_utils import FirebaseAppManager
+      firebase = FirebaseAppManager('${GCP_SERVICE_ACCOUNT_KEY}')
+      success = firebase.download_latest_apk('${FIREBASE_STORAGE_PATH}', '${APK_DOWNLOAD_PATH}')
+      if not success: 
+          print('Failed to download APK from Firebase')
+          sys.exit(1)"
+    - echo "Running Robot Framework tests..."
+    - robot --outputdir /tests/results /tests 
+  artifacts:
+    paths:
+      - logs/
+    reports:
+      junit: logs/output.xml
+    when: always
+    expire_in: 1 week
+
+# Deploy to Development
+deploy-dev:
+  stage: deploy
+  image: registry-gitlab.mti.mt.gov.br/docker-images/google/cloud-sdk:411.0.0
+  needs:
+    - test
+  before_script:
+    - apt-get update && apt-get install -y python3 python3-pip
+    - python3 --version ; pip3 --version
+  script:
+    - echo "$GOOGLE_CLOUD_RAW_CREDENTIALS" > key.json
+    - gcloud auth activate-service-account --key-file=key.json
+    - gcloud config set project $GCP_PROJECT_NAME
+    - gcloud config set container/cluster $GKE_CLUSTER_NAME
+    - gcloud config set compute/zone $GKE_ZONE
+    - gcloud container clusters get-credentials $GKE_CLUSTER_NAME --zone $GKE_ZONE --project $GCP_PROJECT_NAME
+    - kubectl apply -f config/kubernetes/$OPENSHIFT_NAMESPACE_DESENV/ -n $OPENSHIFT_NAMESPACE_DESENV
+    - kubectl rollout restart deployment/$DOCKER_IMAGE_NAME -n $OPENSHIFT_NAMESPACE_DESENV
+  only:
+    refs:
+      - develop
+  when: manual
+
+# Notification about test results
+notify:
+  stage: notify
+  image: alpine:latest
+  needs:
+    - test
+  script:
+    - echo "===================================================================="
+    - echo "Robot Framework test reports are available at the following URLs:"
+    - echo ""
+    - echo "Development:"
+    - echo "https://app-tester.dev.app.cloud.mti.mt.gov.br/report.html"
+    - echo ""
+    - echo "Production:"
+    - echo "https://app-tester.app.cloud.mti.mt.gov.br/report.html"
+    - echo ""
+    - echo "You can also access the log.html and output.xml files at the same URL path"
+    - echo "===================================================================="
+  only:
+    refs:
+      - develop
+  allow_failure: true

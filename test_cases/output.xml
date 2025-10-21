@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.2 on linux)" generated="2025-04-10T06:24:38.501320" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Mobile" source="/media/gabriel/hd2/rw3/assinatura/app-tester/test_cases/login_mobile.robot">
+<test id="s1-t1" name="Cenario 1 : logar no APP mt.gov.br com dados usuario" line="10">
+<kw name="abrir app" owner="setup_teardown" type="SETUP">
+<kw name="Open Application" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.625661" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821675910&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session</msg>
+<msg time="2025-04-10T06:24:38.626309" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821560a50&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session</msg>
+<msg time="2025-04-10T06:24:38.626824" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821560e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.627639" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.627442" elapsed="0.003472">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.632366" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.632525" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821117b10&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>app=${APP_PATH}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>uiautomator2ServerInstallTimeout=60000</arg>
+<arg>adbExecTimeout=60000</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>isHeadless=true</arg>
+<arg>uiautomator2ServerInstallTimeout=60000</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.623220" elapsed="0.010776">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821117b10&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<status status="FAIL" start="2025-04-10T06:24:38.622699" elapsed="0.011460">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821117b10&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<kw name="fechar app" owner="setup_teardown" type="TEARDOWN">
+<kw name="clicar no botao inicio" owner="painel">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.635501" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.635318" elapsed="0.000881">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.637673" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.637838" level="FAIL">No application is open</msg>
+<arg>${BTN_INICIO}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.635050" elapsed="0.003140">No application is open</status>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.640073" level="INFO">Clicking element '//android.widget.TextView[@resource-id="br.gov.mt.cepromat.mtcidadao:id/bottom_navigation_item_title" and @text="Início"]'.</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.640379" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.640215" elapsed="0.000553">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.642256" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.642411" level="FAIL">No application is open</msg>
+<arg>${BTN_INICIO}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.638346" elapsed="0.004342">No application is open</status>
+</kw>
+<status status="FAIL" start="2025-04-10T06:24:38.634780" elapsed="0.008054">Several failures occurred:
+
+1) No application is open
+
+2) No application is open</status>
+</kw>
+<kw name="seleciono o icone do usuario" owner="painel">
+<variable name="${icone_usuario}">
+<msg time="2025-04-10T06:24:38.643956" level="FAIL">Setting variable '${icone_usuario}' failed: Variable '${letra}' not found.</msg>
+<var>//android.widget.TextView[@text="${letra}"]</var>
+<status status="FAIL" start="2025-04-10T06:24:38.643199" elapsed="0.000799">Setting variable '${icone_usuario}' failed: Variable '${letra}' not found.</status>
+</variable>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.644928" level="FAIL">Variable '${icone_usuario}' not found.</msg>
+<arg>${icone_usuario}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.644142" elapsed="0.000818">Variable '${icone_usuario}' not found.</status>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.645919" level="FAIL">Variable '${icone_usuario}' not found.</msg>
+<arg>${icone_usuario}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.645091" elapsed="0.000861">Variable '${icone_usuario}' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-10T06:24:38.643022" elapsed="0.003059">Several failures occurred:
+
+1) Setting variable '${icone_usuario}' failed: Variable '${letra}' not found.
+
+2) Variable '${icone_usuario}' not found.
+
+3) Variable '${icone_usuario}' not found.</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.646591" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.646432" elapsed="0.000615">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.648452" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.648603" level="FAIL">No application is open</msg>
+<arg>//android.widget.TextView[@text="SAIR"]</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.646203" elapsed="0.002750">No application is open</status>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.650619" level="INFO">Clicking element '//android.widget.TextView[@text="SAIR"]'.</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.650906" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.650755" elapsed="0.000538">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.652689" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.652840" level="FAIL">No application is open</msg>
+<arg>//android.widget.TextView[@text="SAIR"]</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.649132" elapsed="0.003978">No application is open</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.653724" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.653469" elapsed="0.000705">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.655575" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.655721" level="FAIL">No application is open</msg>
+<arg>//android.widget.Button[@resource-id="android:id/button1"]</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.653254" elapsed="0.002805">No application is open</status>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.657659" level="INFO">Clicking element '//android.widget.Button[@resource-id="android:id/button1"]'.</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.657939" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.657790" elapsed="0.000526">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.659714" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.659859" level="FAIL">No application is open</msg>
+<arg>//android.widget.Button[@resource-id="android:id/button1"]</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.656192" elapsed="0.003940">No application is open</status>
+</kw>
+<kw name="o usuario esteja na Home do APP" owner="login">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.660935" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.660782" elapsed="0.000621">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.662805" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.662951" level="FAIL">No application is open</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.660551" elapsed="0.002775">No application is open</status>
+</kw>
+<kw name="clicar no botão permitir" owner="login">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-10T06:24:38.664299" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.664151" elapsed="0.000601">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.666177" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.666323" level="FAIL">No application is open</msg>
+<arg>${PERMITIR}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="FAIL" start="2025-04-10T06:24:38.663918" elapsed="0.002736">No application is open</status>
+</kw>
+<msg time="2025-04-10T06:24:38.666755" level="INFO">${passou} = False</msg>
+<var>${passou}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${PERMITIR}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-10T06:24:38.663755" elapsed="0.003025"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${passou}</arg>
+<arg>Click Element</arg>
+<arg>${PERMITIR}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-10T06:24:38.666917" elapsed="0.000111"/>
+</kw>
+<status status="PASS" start="2025-04-10T06:24:38.663501" elapsed="0.003587"/>
+</kw>
+<status status="FAIL" start="2025-04-10T06:24:38.660309" elapsed="0.006881">No application is open</status>
+</kw>
+<kw name="Close All Applications" owner="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" start="2025-04-10T06:24:38.667306" elapsed="0.001481"/>
+</kw>
+<status status="FAIL" start="2025-04-10T06:24:38.634478" elapsed="0.034439">Several failures occurred:
+
+1) No application is open
+
+2) No application is open
+
+3) Setting variable '${icone_usuario}' failed: Variable '${letra}' not found.
+
+4) Variable '${icone_usuario}' not found.
+
+5) Variable '${icone_usuario}' not found.
+
+6) No application is open
+
+7) No application is open
+
+8) No application is open
+
+9) No application is open
+
+10) No application is open</status>
+</kw>
+<tag>usuario</tag>
+<status status="FAIL" start="2025-04-10T06:24:38.622004" elapsed="0.046999">Setup failed:
+MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821117b10&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+Also teardown failed:
+Several failures occurred:
+
+1) No application is open
+
+2) No application is open
+
+3) Setting variable '${icone_usuario}' failed: Variable '${letra}' not found.
+
+4) Variable '${icone_usuario}' not found.
+
+5) Variable '${icone_usuario}' not found.
+
+6) No application is open
+
+7) No application is open
+
+8) No application is open
+
+9) No application is open
+
+10) No application is open</status>
+</test>
+<status status="FAIL" start="2025-04-10T06:24:38.502118" elapsed="0.167270"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">usuario</stat>
+</tag>
+<suite>
+<stat name="Login Mobile" id="s1" pass="0" fail="1" skip="0">Login Mobile</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-10T06:24:38.625661" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821675910&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session</msg>
+<msg time="2025-04-10T06:24:38.626309" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821560a50&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session</msg>
+<msg time="2025-04-10T06:24:38.626824" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7ff821560e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session</msg>
+<msg time="2025-04-10T06:24:38.632366" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.637673" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.642256" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.648452" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.652689" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.655575" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.659714" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.662805" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-10T06:24:38.666177" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>

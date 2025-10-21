@@ -1,0 +1,16 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: app-tester-service
+  labels:
+    app: app-tester
+spec:
+  ports:
+  - name: http
+    protocol: "TCP"
+    port: 80
+    targetPort: 3000
+  selector:
+    app: app-tester
+  type: "ClusterIP"

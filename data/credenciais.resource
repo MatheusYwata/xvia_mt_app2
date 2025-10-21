@@ -1,0 +1,35 @@
+*** Settings ***
+Resource  ../common/main.resource
+
+*** Variables ***
+&{USUARIO}
+# ...  CPF=87962969849
+# ...  CPF=74668935115                   
+#...  CPF=95518002149                    
+#...  CPF=03837525902
+# ...   CPF=55930115168
+# ...  CPF=30946143889
+...  CPF=95518002149
+
+...  PASSWORD=r1234567
+#...  NAME=DAUSON
+#...  NAME=ODILON
+# ...  NAME=SEBASTIAO
+#...  NAME=KENNY 
+# ...   NAME=MARIA
+# ...  NAME=JOSE
+...  NAME=DAUSON
+
+
+&{SERVIDOR}
+# ...  CPF=56730985100
+# ...  CPF=03837525902
+...  CPF=58102183187
+...  PASSWORD=r1234567
+# ...  NAME=ODILON
+...  NAME=JUCELIA
+
+&{USUARIO_MTSAUDE}
+...  CPF=91666279153
+...  PASSWORD=r1234567    
+...  NAME=LUCIANO
